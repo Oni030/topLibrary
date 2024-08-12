@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <head>
+        <h1>Personal Library</h1>
+    </head>
+    <main>
+        <div>
+            <span>Title</span>
+            <span>Author</span>
+            <span>Number of pages</span>
+            <span>Read</span>
+            <button class="new-btn">New Book</button>
+        </div>
+        <dialog class="modal">
+            <form action="" method="dialog">
+                <label for="title">
+                    Title
+                    <input type="text" id="title" name="title" placeholder="The Hobbit">
+                </label>
+                <label for="author">
+                    Author
+                    <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien">
+                </label>
+                <label for="nop">
+                    Number of pages
+                    <input type="text" id="nop" name="nop" placeholder="295">
+                </label>
+                <div class="radio">
+                    Read
+                    <input type="radio" id="yes" name="yes" value="true">
+                    <label for="yes">Yes</label>
+                    <input type="radio" id="no" name="no" value="false">
+                    <label for="no">No</label>
+                </div>
+                <button type="submit" class="add-btn">Add</button>
+                <button class="cancel-btn">Cancel</button>
+            </form>
+        </dialog>
+        
+    </main>
+    <footer>
+        <span>
+            Copyright by Thomas Jaufmann 2024
+        </span>
+    </footer>
+    </html>
+</body>
