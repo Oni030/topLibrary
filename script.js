@@ -27,3 +27,14 @@ function addToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook)
 };
+
+// Event listeners
+newBtn.addEventListener('click', () => {
+    modal.showModal();
+});
+
+cancelBtn.addEventListener('click', () => {
+    modal.close();
+});
+
+addBtn.addEventListener('click', () => {})
