@@ -14,3 +14,16 @@ const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
 const nopInput = document.getElementById("nop");
 const readInput = document.getElementById("read");
+
+// Functions
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+};
+
+function addToLibrary(title, author, pages, read) {
+    const newBook = new Book(title, author, pages, read)
+    myLibrary.push(newBook)
+};
