@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Other html elements
     const libTable = document.querySelector(".libTable");
 
+    // Function executions
+    displayLibrary(myLibrary, libTable);
+
     // Event listeners
     newBtn.addEventListener('click', () => {
         modal.showModal();
@@ -57,4 +60,16 @@ function Book(title, author, pages, read) {
 function addToLibrary(title, author, pages, read) {
     const newBook = new Book(title, author, pages, read)
     myLibrary.push(newBook)
+};
+
+function displayLibrary(libraryArray, tableElement) {
+    for (let i = 0; i < libraryArray.length; i++) {
+        const newTableRow = document.createElement("tr");
+        tableElement.appendChild(newTableRow);
+        for (let key in libraryArray[i]) {
+            const newTableData = document.createElement("td");
+            newTableRow.appendChild(newTableData);
+            newTableData.textContent = libraryArray[i][key];
+        };
+    };
 };
