@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newTitle = titleInput.value;
         const newAuthor = authorInput.value;
         const newPages = nopInput.value;
-        const newRead = readInput.value;
+        const newRead = checkbox(readInput);
 
         addToLibrary(newTitle, newAuthor, newPages, newRead);
         clear(libTable, titleInput, authorInput, nopInput, readInput);
@@ -96,4 +96,12 @@ function clear(libTable, titleInput, authorInput, nopInput, readInput) {
     authorInput.value = "";
     nopInput.value = "";
     readInput.checked = false;
+};
+
+function checkbox(readInput) {
+    if (readInput.checked) {
+        return true;
+    } else {
+        return false;
+    };
 };
