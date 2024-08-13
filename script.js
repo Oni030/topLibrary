@@ -46,7 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.close();
     });
     
-    addBtn.addEventListener('click', () => {})
+    addBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const newTitle = titleInput.value;
+        const newAuthor = authorInput.value;
+        const newPages = nopInput.value;
+        const newRead = readInput.value;
+
+        addToLibrary(newTitle, newAuthor, newPages, newRead);
+        displayLibrary(myLibrary, libTable);
+
+        modal.close();
+    });
 });
 
 // Functions
