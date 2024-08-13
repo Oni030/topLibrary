@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newRead = readInput.value;
 
         addToLibrary(newTitle, newAuthor, newPages, newRead);
+        clear(libTable);
         displayLibrary(myLibrary, libTable);
 
         modal.close();
@@ -85,3 +86,9 @@ function displayLibrary(libraryArray, tableElement) {
         };
     };
 };
+
+function clear(libTable) {
+    while (libTable.firstChild) {
+        libTable.removeChild(libTable.firstChild);
+    };
+}
