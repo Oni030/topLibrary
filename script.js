@@ -41,6 +41,15 @@ function addToLibrary(title, author, pages, read) {
     myLibrary.push(newBook)
 };
 
+function displayLibrary(libraryArray) {
+    // Steps to do:
+    // 1. Loop through myLibrary to retreave book objects
+    // 2. Create a new <tr> inside <tbody> for each object 
+    // 3. Loop through properties of each object to retrieve values
+    // 4. Create one <td> for each property value
+    // 5. Set <td>.textContent to property value
+};
+
 // Event listeners
 newBtn.addEventListener('click', () => {
     modal.showModal();
