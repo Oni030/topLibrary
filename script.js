@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById("title");
     const authorInput = document.getElementById("author");
     const nopInput = document.getElementById("nop");
-    const readInput = document.querySelectorAll("input[name='read']");
+    const readInput = document.getElementById("read");
 
     // Other html elements
     const libTable = document.querySelector(".libTable");
