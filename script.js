@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const newRead = readInput.value;
 
         addToLibrary(newTitle, newAuthor, newPages, newRead);
-        clear(libTable);
+        clear(libTable, titleInput, authorInput, nopInput, readInput);
         displayLibrary(myLibrary, libTable);
 
         modal.close();
@@ -87,8 +87,13 @@ function displayLibrary(libraryArray, tableElement) {
     };
 };
 
-function clear(libTable) {
+function clear(libTable, titleInput, authorInput, nopInput, readInput) {
     while (libTable.firstChild) {
         libTable.removeChild(libTable.firstChild);
     };
-}
+
+    titleInput.value = "";
+    authorInput.value = "";
+    nopInput.value = "";
+    readInput.checked = false;
+};
