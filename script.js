@@ -72,6 +72,8 @@ function displayLibrary(libraryArray, tableElement) {
     for (let i = 0; i < libraryArray.length; i++) {
         const newTableRow = document.createElement("tr");
         tableElement.appendChild(newTableRow);
+        const arrayIndex = libraryArray.length;
+        newTableRow.setAttribute('data-index', i);
         for (let key in libraryArray[i]) {
             const newTableData = document.createElement("td");
             newTableRow.appendChild(newTableData);
