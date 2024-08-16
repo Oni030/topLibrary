@@ -1,7 +1,5 @@
 // Arrays
-const myLibrary = [
-    
-];
+const myLibrary = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
@@ -78,6 +76,11 @@ function displayLibrary(libraryArray, tableElement) {
             newTableRow.appendChild(newTableData);
             newTableData.textContent = libraryArray[i][key];
         };
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
+        deleteButton.setAttribute("type", "button");
+        deleteButton.textContent = "X"
+        newTableRow.appendChild(deleteButton);
     };
 };
 
