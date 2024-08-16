@@ -27,18 +27,18 @@
                 </tbody>
             </table>
             <dialog class="modal">
-                <form action="" method="dialog">
+                <form method="dialog">
                     <label for="title">
                         Title
-                        <input type="text" id="title" name="title" placeholder="The Hobbit" required>
+                        <input type="text" id="title" name="title" placeholder="The Hobbit" pattern="^[\p{L}\p{N}.,?!&#39;&quot;\-:;()&@#\s]+$" required>
                     </label>
                     <label for="author">
                         Author
-                        <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien" required>
+                        <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien" pattern="^[\p{L}\s.&#39;-]+$" required>
                     </label>
                     <label for="nop">
                         Number of pages
-                        <input type="text" id="nop" name="nop" placeholder="295" required>
+                        <input type="text" id="nop" name="nop" placeholder="295" pattern="^[\d]+$" required>
                     </label>
                     <label for="read">
                         Read
