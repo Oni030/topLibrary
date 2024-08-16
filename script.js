@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newBtn = document.querySelector(".new-btn");
     const addBtn = document.querySelector(".add-btn");
     const cancelBtn = document.querySelector(".cancel-btn");
+    const deleteBtn = document.querySelector("delete-btn");
 
     // Dialog modal
     const modal = document.querySelector(".modal");
