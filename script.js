@@ -1,17 +1,6 @@
 // Arrays
 const myLibrary = [
-    {
-        title: "The Hobbit",
-        author: "J.R.R. Tolkien",
-        pages: 320,
-        read: false
-    },
-    {
-        title: "Brave New World",
-        author: "Aldous Huxley",
-        pages: 311,
-        read: true
-    }
+    
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
