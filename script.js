@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const readInput = document.getElementById("read");
 
     // Other html elements
+    const form = document.querySelector("form[method='dialog']")
     const libTable = document.querySelector(".libTable");
 
     // Function executions
@@ -43,11 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const newPages = nopInput.value;
         const newRead = checkbox(readInput);
 
-        addToLibrary(newTitle, newAuthor, newPages, newRead);
-        clear(libTable, titleInput, authorInput, nopInput, readInput);
-        displayLibrary(myLibrary, libTable);
-
-        modal.close();
+        if (form.checkValidity()) {
+            addToLibrary(newTitle, newAuthor, newPages, newRead);
+            clear(libTable, titleInput, authorInput, nopInput, readInput);
+            displayLibrary(myLibrary, libTable);
+            modal.close();
+        } else {
+            form.reportValidity();
+        };
     });
 });
 
