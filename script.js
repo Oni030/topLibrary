@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const newBtn = document.querySelector(".new-btn");
     const addBtn = document.querySelector(".add-btn");
     const cancelBtn = document.querySelector(".cancel-btn");
-    const deleteBtn = document.querySelector("delete-btn");
 
     // Dialog modal
     const modal = document.querySelector(".modal");
@@ -50,6 +49,18 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.close();
         } else {
             form.reportValidity();
+        };
+        console.log(myLibrary);
+    });
+
+    libTable.addEventListener('click', (event) => { 
+        const target = event.target;
+        if (target.classList.contains("delete-btn")) {
+            const parent = target.parentElement;
+            const dataValue = target.dataset.indexAttribute;
+            parent.remove();
+            myLibrary.splice(dataValue, 1);
+            console.log(myLibrary);
         };
     });
 });
