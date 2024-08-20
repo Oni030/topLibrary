@@ -40,3 +40,20 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* END OF CUSTOM RESET */
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
+    width: 100vw;
+    height: 50px;
+    padding: 20px;
+    background-color: lightcyan;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
