@@ -128,9 +128,9 @@ function displayLibrary(libraryArray, libraryDisplay) {
     };
 };
 
-function clear(libTable, titleInput, authorInput, nopInput, readInput) {
-    while (libTable.firstChild) {
-        libTable.removeChild(libTable.firstChild);
+function clear(libraryDisplay, titleInput, authorInput, nopInput, readInput) {
+    while (libraryDisplay.firstChild) {
+        libraryDisplay.removeChild(libraryDisplay.firstChild);
     };
 
     titleInput.value = "";
