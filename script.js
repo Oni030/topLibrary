@@ -69,11 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     libraryDisplay.addEventListener('click', (event) => { 
         const target = event.target;
         if (target.classList.contains("delete-btn")) {
-            const parent = target.parentElement;
-            const dataValue = target.dataset.indexAttribute;
-            parent.remove();
-            myLibrary.splice(dataValue, 1);
-            console.log(myLibrary);
+            remove(target);
         };
     });
 });
@@ -137,6 +133,14 @@ function clear(libraryDisplay, titleInput, authorInput, nopInput, readInput) {
     authorInput.value = "";
     nopInput.value = "";
     readInput.checked = false;
+};
+
+function remove(target) {
+    const parent = target.parentElement;
+    const dataValue = target.dataset.indexAttribute;
+    parent.remove();
+    myLibrary.splice(dataValue, 1);
+    console.log(myLibrary);
 };
 
 function checkbox(readInput) {
