@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Other html elements
     const form = document.querySelector("form[method='dialog']")
-    const libTable = document.querySelector(".libTable");
+    const libraryDisplay = document.querySelector(".library-display");
 
     // Function executions
     displayLibrary(myLibrary, libTable);
