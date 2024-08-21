@@ -57,16 +57,3 @@ main {
     flex: 1;
     padding: 20px;
 }
-
-table {
-    width: 100%;
-}
-
-tr {
-    display: grid;
-    grid-template-columns: 1fr 1fr 150px 100px 100px;
-}
-
-th {
-    text-align: start;
-}
