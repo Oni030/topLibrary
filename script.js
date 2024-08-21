@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const libraryDisplay = document.querySelector(".library-display");
 
     // Function executions
-    displayLibrary(myLibrary, libTable);
+    displayLibrary(myLibrary, libraryDisplay);
 
     // Event listeners
     newBtn.addEventListener('click', () => {
@@ -91,21 +91,40 @@ function addToLibrary(title, author, pages, read) {
     myLibrary.push(newBook)
 };
 
-function displayLibrary(libraryArray, tableElement) {
+function displayLibrary(libraryArray, libraryDisplay) {
     for (let i = 0; i < libraryArray.length; i++) {
-        const newTableRow = document.createElement("tr");
-        tableElement.appendChild(newTableRow);
-        newTableRow.setAttribute('data-index', i);
+        const newCard = document.createElement("div");
+        libraryDisplay.appendChild(newCard);
+        newCard.setAttribute('data-index', i);
         for (let key in libraryArray[i]) {
-            const newTableData = document.createElement("td");
-            newTableRow.appendChild(newTableData);
-            newTableData.textContent = libraryArray[i][key];
+            if (key === "title") {
+                const newTitle = document.createElement("div");
+                newTitle.classList.add("title");
+                newTitle.textContent = "'" + libraryArray[i][key] + "'";
+                newCard.appendChild(newTitle);
+            } else if (key === "author") {
+                const newAuthor = document.createElement("div");
+                newAuthor.classList.add("author");
+                newAuthor.textContent = "by " + libraryArray[i][key];
+                newCard.appendChild(newAuthor);
+            } else if (key === "pages") {
+                const newPages = document.createElement("div");
+                newPages.classList.add("pages");
+                newPages.textContent = libraryArray[i][key] + " pages";
+                newCard.appendChild(newPages);
+            } else if (key === "read") {
+                const newRead = document.createElement("input");
+                newRead.classList.add("read");
+                newRead.setAttribute("type", "checkbox");
+                newRead.checked = libraryArray[i][key];
+                newCard.appendChild(newRead); 
+            };
         };
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-btn");
         deleteButton.setAttribute("type", "button");
         deleteButton.textContent = "X"
-        newTableRow.appendChild(deleteButton);
+        newCard.appendChild(deleteButton);
     };
 };
 
