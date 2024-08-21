@@ -1,5 +1,18 @@
 // Arrays
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pages: "295",
+        read: false
+    },
+    {
+        title: "Brave New World",
+        author: "Aldous Huxley",
+        pages: "325",
+        read: true
+    }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
