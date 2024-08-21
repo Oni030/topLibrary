@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(myLibrary);
     });
 
-    libTable.addEventListener('click', (event) => { 
+    libraryDisplay.addEventListener('click', (event) => { 
         const target = event.target;
         if (target.classList.contains("delete-btn")) {
             const parent = target.parentElement;
