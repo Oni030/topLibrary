@@ -139,9 +139,13 @@ function clear(libraryDisplay, titleInput, authorInput, nopInput, readInput) {
 
 function remove(target) {
     const parent = target.parentElement;
-    const dataValue = target.dataset.indexAttribute;
+    const dataValue = parent.dataset.index;
     parent.remove();
     myLibrary.splice(dataValue, 1);
+    const remainingCards = document.querySelectorAll('[data-index]');
+    remainingCards.forEach((card, index) => {
+        card.setAttribute('data-index', index);
+    });
     console.log(myLibrary);
 };
 
