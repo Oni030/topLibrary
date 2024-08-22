@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = event.target;
         if (target.classList.contains("delete-btn")) {
             remove(target);
+        } else if (target.classList.contains("read")) {
+            updateRead(target);
         };
     });
 });
@@ -140,6 +142,17 @@ function remove(target) {
     const dataValue = target.dataset.indexAttribute;
     parent.remove();
     myLibrary.splice(dataValue, 1);
+    console.log(myLibrary);
+};
+
+function updateRead(target) {
+    const parent = target.parentElement;
+    const dataValue = parent.dataset.index;
+    if(target.checked) {
+        myLibrary[dataValue]["read"] = true;
+    } else {
+        myLibrary[dataValue]["read"] = false;
+    };
     console.log(myLibrary);
 };
 
