@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (form.checkValidity()) {
             addToLibrary(newTitle, newAuthor, newPages, newRead);
-            clear(libTable, titleInput, authorInput, nopInput, readInput);
-            displayLibrary(myLibrary, libTable);
+            clear(libraryDisplay, titleInput, authorInput, nopInput, readInput);
+            displayLibrary(myLibrary, libraryDisplay);
             modal.close();
         } else {
             form.reportValidity();
