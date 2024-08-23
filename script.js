@@ -92,6 +92,7 @@ function addToLibrary(title, author, pages, read) {
 function displayLibrary(libraryArray, libraryDisplay, newBtn) {
     for (let i = 0; i < libraryArray.length; i++) {
         const newCard = document.createElement("div");
+        newCard.classList.add("card");
         newCard.setAttribute('data-index', i);
         libraryDisplay.insertBefore(newCard, newBtn);
         for (let key in libraryArray[i]) {
