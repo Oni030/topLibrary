@@ -61,7 +61,13 @@ header, footer {
 }
 
 header {
-    padding: 30px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: end;
+}
+
+header > img {
+    width: 6rem;
 }
 
 footer {
