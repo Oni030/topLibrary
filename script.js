@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const libraryDisplay = document.querySelector(".library-display");
 
     // Function executions
-    displayLibrary(myLibrary, libraryDisplay);
+    displayLibrary(myLibrary, libraryDisplay, newBtn);
 
     // Event listeners
     newBtn.addEventListener('click', () => {
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (form.checkValidity()) {
             addToLibrary(newTitle, newAuthor, newPages, newRead);
             clear(libraryDisplay, titleInput, authorInput, nopInput, readInput);
-            displayLibrary(myLibrary, libraryDisplay);
+            displayLibrary(myLibrary, libraryDisplay, newBtn);
             modal.close();
         } else {
             form.reportValidity();
@@ -89,11 +89,11 @@ function addToLibrary(title, author, pages, read) {
     myLibrary.push(newBook)
 };
 
-function displayLibrary(libraryArray, libraryDisplay) {
+function displayLibrary(libraryArray, libraryDisplay, newBtn) {
     for (let i = 0; i < libraryArray.length; i++) {
         const newCard = document.createElement("div");
-        libraryDisplay.appendChild(newCard);
         newCard.setAttribute('data-index', i);
+        libraryDisplay.insertBefore(newCard, newBtn);
         for (let key in libraryArray[i]) {
             if (key === "title") {
                 const newTitle = document.createElement("div");
@@ -127,9 +127,8 @@ function displayLibrary(libraryArray, libraryDisplay) {
 };
 
 function clear(libraryDisplay, titleInput, authorInput, nopInput, readInput) {
-    while (libraryDisplay.firstChild) {
-        libraryDisplay.removeChild(libraryDisplay.firstChild);
-    };
+    const cards = libraryDisplay.querySelectorAll('[data-index]');
+    cards.forEach(card => libraryDisplay.removeChild(card));
 
     titleInput.value = "";
     authorInput.value = "";
