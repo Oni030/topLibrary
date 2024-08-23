@@ -111,10 +111,13 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 newPages.textContent = libraryArray[i][key] + " pages";
                 newCard.appendChild(newPages);
             } else if (key === "read") {
-                const newRead = document.createElement("input");
-                newRead.classList.add("read");
-                newRead.setAttribute("type", "checkbox");
-                newRead.checked = libraryArray[i][key];
+                const newRead = document.createElement("label");
+                newRead.textContent = "Read status: ";
+                const newCheck = document.createElement("input");
+                newCheck.classList.add("read");
+                newCheck.setAttribute("type", "checkbox");
+                newCheck.checked = libraryArray[i][key];
+                newRead.appendChild(newCheck);
                 newCard.appendChild(newRead); 
             };
         };
@@ -149,8 +152,8 @@ function remove(target) {
 };
 
 function updateRead(target) {
-    const parent = target.parentElement;
-    const dataValue = parent.dataset.index;
+    const card = target.closest("[data-index]");
+    const dataValue = card.dataset.index;
     if(target.checked) {
         myLibrary[dataValue]["read"] = true;
     } else {
