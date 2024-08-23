@@ -81,6 +81,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
     gap: 2rem;
+    overflow: auto;
 }
 
 .card {
