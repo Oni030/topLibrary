@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     libraryDisplay.addEventListener('click', (event) => { 
         const target = event.target;
-        if (target.classList.contains("delete-btn")) {
+        if (target.classList.contains("remove-btn")) {
             remove(target);
         } else if (target.classList.contains("read")) {
             updateRead(target);
@@ -121,11 +121,11 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 newCard.appendChild(newRead); 
             };
         };
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-btn");
-        deleteButton.setAttribute("type", "button");
-        deleteButton.textContent = "X"
-        newCard.appendChild(deleteButton);
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove-btn");
+        removeButton.setAttribute("type", "button");
+        removeButton.textContent = "X"
+        newCard.appendChild(removeButton);
     };
 };
 
