@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inputs
     const titleInput = document.getElementById("title");
     const authorInput = document.getElementById("author");
-    const nopInput = document.getElementById("nop");
+    const pagesInput = document.getElementById("pages");
     const readInput = document.getElementById("read");
 
     // Other html elements
@@ -52,12 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const newTitle = titleInput.value;
         const newAuthor = authorInput.value;
-        const newPages = nopInput.value;
+        const newPages = pagesInput.value;
         const newRead = checkbox(readInput);
 
         if (form.checkValidity()) {
             addToLibrary(newTitle, newAuthor, newPages, newRead);
-            clear(libraryDisplay, titleInput, authorInput, nopInput, readInput);
+            clear(libraryDisplay, titleInput, authorInput, pagesInput, readInput);
             displayLibrary(myLibrary, libraryDisplay, newBtn);
             modal.close();
         } else {
@@ -129,13 +129,13 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
     };
 };
 
-function clear(libraryDisplay, titleInput, authorInput, nopInput, readInput) {
+function clear(libraryDisplay, titleInput, authorInput, pagesInput, readInput) {
     const cards = libraryDisplay.querySelectorAll('[data-index]');
     cards.forEach(card => libraryDisplay.removeChild(card));
 
     titleInput.value = "";
     authorInput.value = "";
-    nopInput.value = "";
+    pagesInput.value = "";
     readInput.checked = false;
 };
 
