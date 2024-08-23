@@ -42,10 +42,10 @@ p, h1, h2, h3, h4, h5, h6 {
 /* END OF CUSTOM RESET */
 :root {
     --main: #1A1A1A;
-    --prime: #4E9E8C ;
-    --second: #3A3A3A;
+    --prime: #333333;
+    --second: #4C4C4C;
     --text: #E5E5E5;
-    --highlight: #3A6F60; 
+    --highlight: #3A6F60;
 }
 
 body, html {
@@ -57,7 +57,7 @@ body, html {
 
 header, footer {
     width: 100vw;
-    background-color: var(--second);
+    background-color: var(--main);
 }
 
 header {
