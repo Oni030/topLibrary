@@ -52,16 +52,18 @@ body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
+    color: var(--text);
 }
 
 header, footer {
     width: 100vw;
     height: 50px;
     padding: 20px;
-    background-color: lightcyan;
+    background-color: var(--second);
 }
 
 main {
     flex: 1;
     padding: 20px;
+    background-color: var(--main);
 }
