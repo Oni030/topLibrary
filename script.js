@@ -94,23 +94,29 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
         const newCard = document.createElement("div");
         newCard.classList.add("card");
         newCard.setAttribute('data-index', i);
+        const bookInfo = document.createElement("div");
+        bookInfo.classList.add("bookInfo");
+        newCard.appendChild(bookInfo);
+        const cardFunctions = document.createElement("div");
+        cardFunctions.classList.add("cardFunctions");
+        newCard.appendChild(cardFunctions);
         libraryDisplay.insertBefore(newCard, newBtn);
         for (let key in libraryArray[i]) {
             if (key === "title") {
                 const newTitle = document.createElement("div");
                 newTitle.classList.add("title");
                 newTitle.textContent = "'" + libraryArray[i][key] + "'";
-                newCard.appendChild(newTitle);
+                bookInfo.appendChild(newTitle);
             } else if (key === "author") {
                 const newAuthor = document.createElement("div");
                 newAuthor.classList.add("author");
                 newAuthor.textContent = libraryArray[i][key];
-                newCard.appendChild(newAuthor);
+                bookInfo.appendChild(newAuthor);
             } else if (key === "pages") {
                 const newPages = document.createElement("div");
                 newPages.classList.add("pages");
                 newPages.textContent = libraryArray[i][key] + " pages";
-                newCard.appendChild(newPages);
+                bookInfo.appendChild(newPages);
             } else if (key === "read") {
                 const newRead = document.createElement("label");
                 newRead.classList.add("read");
@@ -120,14 +126,14 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 newCheck.setAttribute("type", "checkbox");
                 newCheck.checked = libraryArray[i][key];
                 newRead.appendChild(newCheck);
-                newCard.appendChild(newRead); 
+                cardFunctions.appendChild(newRead); 
             };
         };
         const removeButton = document.createElement("button");
         removeButton.classList.add("remove-btn");
         removeButton.setAttribute("type", "button");
         removeButton.textContent = "X"
-        newCard.appendChild(removeButton);
+        cardFunctions.appendChild(removeButton);
     };
 };
 
