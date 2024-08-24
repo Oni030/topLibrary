@@ -113,6 +113,7 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 newCard.appendChild(newPages);
             } else if (key === "read") {
                 const newRead = document.createElement("label");
+                newRead.classList.add("read");
                 newRead.textContent = "Read status: ";
                 const newCheck = document.createElement("input");
                 newCheck.classList.add("readStatus");
