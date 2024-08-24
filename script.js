@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = event.target;
         if (target.classList.contains("remove-btn")) {
             remove(target);
-        } else if (target.classList.contains("read")) {
+        } else if (target.classList.contains("readStatus")) {
             updateRead(target);
         };
     });
@@ -104,7 +104,7 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
             } else if (key === "author") {
                 const newAuthor = document.createElement("div");
                 newAuthor.classList.add("author");
-                newAuthor.textContent = "by " + libraryArray[i][key];
+                newAuthor.textContent = libraryArray[i][key];
                 newCard.appendChild(newAuthor);
             } else if (key === "pages") {
                 const newPages = document.createElement("div");
@@ -115,7 +115,7 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 const newRead = document.createElement("label");
                 newRead.textContent = "Read status: ";
                 const newCheck = document.createElement("input");
-                newCheck.classList.add("read");
+                newCheck.classList.add("readStatus");
                 newCheck.setAttribute("type", "checkbox");
                 newCheck.checked = libraryArray[i][key];
                 newRead.appendChild(newCheck);
