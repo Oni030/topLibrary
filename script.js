@@ -132,7 +132,7 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
         const removeButton = document.createElement("button");
         removeButton.classList.add("remove-btn");
         removeButton.setAttribute("type", "button");
-        removeButton.textContent = "X"
+        removeButton.textContent = "Remove"
         cardFunctions.appendChild(removeButton);
     };
 };
