@@ -85,6 +85,13 @@ main {
     overflow: auto;
 }
 
+.card, .bookInfo, .cardFunctions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+}
+
 .card {
     padding: 2.5rem;
     max-width: 25rem;
@@ -92,14 +99,9 @@ main {
     background-color: var(--prime);
     border: 1px solid var(--text);
     border-radius: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    justify-content: space-around;
 }
 
-.card > * {
-    font-size: 2rem;
-}
 
 div.new-btn {
     background-color: transparent;
@@ -108,4 +110,28 @@ div.new-btn {
     max-width: 12.5rem;
     max-height: 12.5rem;
     border: none;
+}
+
+.bookInfo {
+    align-items: center;
+}
+
+.cardFunctions {
+    gap: 2.4rem;
+}
+
+.title, .author, .pages, .read {
+    font-size: 1.8rem;
+}
+
+.title, .read, .remove-btn {
+    font-weight: bold;
+}
+
+.author {
+    font-style: italic;
+}
+
+.remove-btn {
+    width: 100%;
 }
