@@ -110,12 +110,14 @@ div.new-btn {
     max-height: 12.5rem;
     border: none;
     filter: invert(56%) sepia(0%) saturate(1182%) hue-rotate(191deg) brightness(90%) contrast(85%);
+    transition: filter 0.2s ease;
 }
 
 .remove-btn {
     font-size: 2.4rem;
     border-radius: 0.5rem;
     filter: invert(46%) sepia(5%) saturate(52%) hue-rotate(315deg) brightness(112%) contrast(98%);
+    transition: filter 0.2s ease;
     width: 2.9rem;
     height: 2.9rem;
     position: relative;
@@ -125,6 +127,7 @@ div.new-btn {
 
 .new-btn:hover, .remove-btn:hover {
     filter: invert(100%) sepia(6%) saturate(6580%) hue-rotate(183deg) brightness(127%) contrast(101%);
+    transition: filter 0.2s ease;
     cursor: pointer;
 }
 
