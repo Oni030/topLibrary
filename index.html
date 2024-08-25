@@ -5,55 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Personal Library</title>
         <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <script src="script.js" defer></script>
     </head>
     <body>
         <header>
-            <h1>Personal Library</h1>
+            <img src="icons/book-open.svg" alt="App logo">
         </header>
-        <main>
-            <div><button class="new-btn">New Book</button></div>
-            <table>
-                <thead>
-                    <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Page count</th>
-                        <th scope="col">Read</th>
-                    </tr>
-                </thead>
-                <tbody class="libTable">
-                    
-                </tbody>
-            </table>
-            <dialog class="modal">
-                <form method="dialog">
-                    <label for="title">
-                        Title
-                        <input type="text" id="title" name="title" placeholder="The Hobbit" pattern="^[\p{L}\p{N}\s\-\(\).,:;?!&#39;&quot;&@#]+$" required>
-                    </label>
-                    <label for="author">
-                        Author
-                        <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien" pattern="^[\p{L}\s\-.&#39;]+$" required>
-                    </label>
-                    <label for="nop">
-                        Number of pages
-                        <input type="text" id="nop" name="nop" placeholder="295" pattern="^[\d]+$" required>
-                    </label>
-                    <label for="read">
-                        Read
-                        <input type="checkbox" id="read" name="read" value="Yes">
-                    </label>
-                    <button type="submit" class="add-btn">Add</button>
-                    <button class="cancel-btn">Cancel</button>
-                </form>
-            </dialog>
-            
+        <main class="library-display">
+            <div class="card new-btn">
+                <img src="icons/plus-square.svg" class="btn-icon"/> 
+            </div>    
         </main>
         <footer>
             <span>
                 Copyright by Thomas Jaufmann 2024
             </span>
         </footer>
+        <dialog class="modal">
+            <form method="dialog">
+                <label for="title">
+                    Title
+                    <input type="text" id="title" name="title" placeholder="The Hobbit" pattern="^[\p{L}\p{N}\s\-\(\).,:;?!&#39;&quot;&@#]+$" required>
+                </label>
+                <label for="author">
+                    Author
+                    <input type="text" id="author" name="author" placeholder="J.R.R. Tolkien" pattern="^[\p{L}\s\-.&#39;]+$" required>
+                </label>
+                <label for="pages">
+                    Number of pages
+                    <input type="text" id="pages" name="pages" placeholder="295" pattern="^[\d]+$" required>
+                </label>
+                <label for="read">
+                    Read
+                    <input type="checkbox" id="read" name="read" value="Yes">
+                </label>
+                <button type="submit" class="add-btn">Add</button>
+                <button class="cancel-btn">Cancel</button>
+            </form>
+        </dialog>
     </body>
 </html>

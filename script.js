@@ -1,5 +1,18 @@
 // Arrays
-const myLibrary = [];
+const myLibrary = [
+    {
+        title: "The Hobbit",
+        author: "J.R.R. Tolkien",
+        pages: "295",
+        read: false
+    },
+    {
+        title: "The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared",
+        author: "Jonas Jonasson",
+        pages: "396",
+        read: true
+    }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM fully loaded and parsed');
@@ -15,15 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Inputs
     const titleInput = document.getElementById("title");
     const authorInput = document.getElementById("author");
-    const nopInput = document.getElementById("nop");
+    const pagesInput = document.getElementById("pages");
     const readInput = document.getElementById("read");
 
     // Other html elements
     const form = document.querySelector("form[method='dialog']")
-    const libTable = document.querySelector(".libTable");
+    const libraryDisplay = document.querySelector(".library-display");
 
     // Function executions
-    displayLibrary(myLibrary, libTable);
+    displayLibrary(myLibrary, libraryDisplay, newBtn);
 
     // Event listeners
     newBtn.addEventListener('click', () => {
@@ -39,13 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const newTitle = titleInput.value;
         const newAuthor = authorInput.value;
-        const newPages = nopInput.value;
+        const newPages = pagesInput.value;
         const newRead = checkbox(readInput);
 
         if (form.checkValidity()) {
             addToLibrary(newTitle, newAuthor, newPages, newRead);
-            clear(libTable, titleInput, authorInput, nopInput, readInput);
-            displayLibrary(myLibrary, libTable);
+            clear(libraryDisplay, titleInput, authorInput, pagesInput, readInput);
+            displayLibrary(myLibrary, libraryDisplay, newBtn);
             modal.close();
         } else {
             form.reportValidity();
@@ -53,14 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(myLibrary);
     });
 
-    libTable.addEventListener('click', (event) => { 
+    libraryDisplay.addEventListener('click', (event) => { 
         const target = event.target;
-        if (target.classList.contains("delete-btn")) {
-            const parent = target.parentElement;
-            const dataValue = target.dataset.indexAttribute;
-            parent.remove();
-            myLibrary.splice(dataValue, 1);
-            console.log(myLibrary);
+        if (target.classList.contains("remove-btn")) {
+            remove(target);
+        } else if (target.classList.contains("readStatus")) {
+            updateRead(target);
         };
     });
 });
@@ -78,33 +89,82 @@ function addToLibrary(title, author, pages, read) {
     myLibrary.push(newBook)
 };
 
-function displayLibrary(libraryArray, tableElement) {
+function displayLibrary(libraryArray, libraryDisplay, newBtn) {
     for (let i = 0; i < libraryArray.length; i++) {
-        const newTableRow = document.createElement("tr");
-        tableElement.appendChild(newTableRow);
-        newTableRow.setAttribute('data-index', i);
+        const newCard = document.createElement("div");
+        newCard.classList.add("card");
+        newCard.setAttribute('data-index', i);
+        const bookInfo = document.createElement("div");
+        bookInfo.classList.add("bookInfo");
+        newCard.appendChild(bookInfo);
+        libraryDisplay.insertBefore(newCard, newBtn);
         for (let key in libraryArray[i]) {
-            const newTableData = document.createElement("td");
-            newTableRow.appendChild(newTableData);
-            newTableData.textContent = libraryArray[i][key];
+            if (key === "title") {
+                const newTitle = document.createElement("div");
+                newTitle.classList.add("title");
+                newTitle.textContent = "'" + libraryArray[i][key] + "'";
+                bookInfo.appendChild(newTitle);
+            } else if (key === "author") {
+                const newAuthor = document.createElement("div");
+                newAuthor.classList.add("author");
+                newAuthor.textContent = libraryArray[i][key];
+                bookInfo.appendChild(newAuthor);
+            } else if (key === "pages") {
+                const newPages = document.createElement("div");
+                newPages.classList.add("pages");
+                newPages.textContent = libraryArray[i][key] + " pages";
+                bookInfo.appendChild(newPages);
+            } else if (key === "read") {
+                const newRead = document.createElement("label");
+                newRead.classList.add("read");
+                newRead.textContent = "Read status: ";
+                const newCheck = document.createElement("input");
+                newCheck.classList.add("readStatus");
+                newCheck.setAttribute("type", "checkbox");
+                newCheck.checked = libraryArray[i][key];
+                newRead.appendChild(newCheck);
+                bookInfo.appendChild(newRead); 
+            };
         };
-        const deleteButton = document.createElement("button");
-        deleteButton.classList.add("delete-btn");
-        deleteButton.setAttribute("type", "button");
-        deleteButton.textContent = "X"
-        newTableRow.appendChild(deleteButton);
+        const removeButton = document.createElement("button");
+        removeButton.classList.add("remove-btn");
+        removeButton.setAttribute("type", "button");
+        removeButton.textContent = "×";
+        newCard.insertBefore(removeButton, bookInfo);
     };
 };
 
-function clear(libTable, titleInput, authorInput, nopInput, readInput) {
-    while (libTable.firstChild) {
-        libTable.removeChild(libTable.firstChild);
-    };
+function clear(libraryDisplay, titleInput, authorInput, pagesInput, readInput) {
+    const cards = libraryDisplay.querySelectorAll('[data-index]');
+    cards.forEach(card => libraryDisplay.removeChild(card));
 
     titleInput.value = "";
     authorInput.value = "";
-    nopInput.value = "";
+    pagesInput.value = "";
     readInput.checked = false;
+};
+
+function remove(target) {
+    const parent = target.parentElement;
+    const dataValue = parent.dataset.index;
+    parent.remove();
+    myLibrary.splice(dataValue, 1);
+    const remainingCards = document.querySelectorAll('[data-index]');
+    remainingCards.forEach((card, index) => {
+        card.setAttribute('data-index', index);
+    });
+    console.log(myLibrary);
+};
+
+function updateRead(target) {
+    const card = target.closest("[data-index]");
+    const dataValue = card.dataset.index;
+    if(target.checked) {
+        myLibrary[dataValue]["read"] = true;
+    } else {
+        myLibrary[dataValue]["read"] = false;
+    };
+    console.log(myLibrary);
 };
 
 function checkbox(readInput) {

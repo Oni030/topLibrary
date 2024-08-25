@@ -40,33 +40,106 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* END OF CUSTOM RESET */
+:root {
+    --main: #1A1A1A;
+    --prime: #333333;
+    --second: #4C4C4C;
+    --text: #E5E5E5;
+    --highlight: #3A6F60;
+}
+
 body, html {
-    height: 100%;
+    height: 100vh;
+    color: var(--text);
     display: flex;
     flex-direction: column;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 header, footer {
     width: 100vw;
-    height: 50px;
-    padding: 20px;
-    background-color: lightcyan;
+    background-color: var(--main);
+}
+
+header {
+    padding: 20px 30px 0;
+    display: flex;
+    justify-content: end;
+}
+
+header > img {
+    width: 6rem;
+}
+
+footer {
+    padding: 5px 30px;
 }
 
 main {
     flex: 1;
-    padding: 20px;
-}
-
-table {
-    width: 100%;
-}
-
-tr {
+    padding: 30px;
+    background-color: var(--main);
     display: grid;
-    grid-template-columns: 1fr 1fr 150px 100px 100px;
+    grid-template-columns: repeat(auto-fit, 30rem);
+    gap: 2rem;
+    overflow: auto;
 }
 
-th {
-    text-align: start;
+.bookInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.card {
+    padding: 2.5rem;
+    max-height: 30rem;
+    background-color: var(--prime);
+    border: 1px solid var(--text);
+    border-radius: 2rem;
+}
+
+
+div.new-btn {
+    background-color: transparent;
+    padding: 0;
+    margin: 6.25rem;
+    max-width: 12.5rem;
+    max-height: 12.5rem;
+    border: none;
+}
+
+.bookInfo {
+    align-items: center;
+}
+
+.cardFunctions {
+    gap: 2.4rem;
+}
+
+.title, .author, .pages, .read {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.title, .read, .remove-btn {
+    font-weight: bold;
+}
+
+.author {
+    font-style: italic;
+}
+
+.remove-btn {
+    font-size: 2.4rem;
+    border: 0.2rem solid var(--text);
+    border-radius: 0.5rem;
+    color: var(--text);
+    background-color: var(--prime);
+    width: 2.9rem;
+    height: 2.9rem;
+    position: relative;
+    top: -0.6rem;
+    left: 22.5rem;
 }
