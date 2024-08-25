@@ -48,6 +48,9 @@ p, h1, h2, h3, h4, h5, h6 {
     --main-op: #808080;
     --prime-op: #838383;
     --highlight: #3A6F60;
+    --accept: #79B2A3;
+    --warning: #D9534F;
+    --success: #5CB85C;
 }
 
 body, html {
@@ -150,4 +153,84 @@ div.new-btn {
 
 .author {
     font-style: italic;
+}
+
+.modal {
+    top: 25vh;
+    left: 25vw;
+    width: 50%;
+    padding: 4rem;
+    border: 1rem solid var(--text);
+    border-radius: 2rem;
+    background-color: var(--prime);
+    color: var(--text);
+}
+
+form[method="dialog"] {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+form[method="dialog"] > label {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.4rem;
+    font-weight: bold;
+    gap: 0.2rem;
+}
+
+form[method="dialog"] > label[for="read"] {
+    flex-direction: row;
+    gap: 2rem;
+}
+
+label > input {
+    color: var(--text);
+    background-color: var(--prime);
+    font-weight: normal;
+    border: 2px solid var(--text);
+    border-radius: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+label > input::placeholder {
+    color: var(--prime-op);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 8rem;
+}
+
+.add-btn, .cancel-btn {
+    background-color: transparent;
+    max-width: 9rem;
+    border: none;
+    filter: invert(46%) sepia(5%) saturate(52%) hue-rotate(315deg) brightness(112%) contrast(98%);
+    transition: filter 0.2s ease;
+}
+
+.add-btn:hover, .cancel-btn:hover {
+    filter: invert(100%) sepia(6%) saturate(6580%) hue-rotate(183deg) brightness(127%) contrast(101%);
+    transition: filter 0.2s ease;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    border: 2px solid var(--prime-op);
+    background-color: var(--prime);
+    width: 2rem;
+    height: 2rem;
+}
+
+input[type="checkbox"]:hover {
+    border: 2px solid var(--text);
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--accept);
+    box-shadow: inset 0px 0px 0px 3px var(--prime) ;
 }
