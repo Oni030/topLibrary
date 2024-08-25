@@ -45,6 +45,8 @@ p, h1, h2, h3, h4, h5, h6 {
     --prime: #333333;
     --second: #4C4C4C;
     --text: #E5E5E5;
+    --main-op: #808080;
+    --prime-op: #838383;
     --highlight: #3A6F60;
 }
 
@@ -100,7 +102,6 @@ main {
     border-radius: 2rem;
 }
 
-
 div.new-btn {
     background-color: transparent;
     padding: 0;
@@ -108,6 +109,23 @@ div.new-btn {
     max-width: 12.5rem;
     max-height: 12.5rem;
     border: none;
+    filter: invert(56%) sepia(0%) saturate(1182%) hue-rotate(191deg) brightness(90%) contrast(85%);
+}
+
+.remove-btn {
+    font-size: 2.4rem;
+    border-radius: 0.5rem;
+    filter: invert(46%) sepia(5%) saturate(52%) hue-rotate(315deg) brightness(112%) contrast(98%);
+    width: 2.9rem;
+    height: 2.9rem;
+    position: relative;
+    top: -0.6rem;
+    left: 22.5rem;
+}
+
+.new-btn:hover, .remove-btn:hover {
+    filter: invert(100%) sepia(6%) saturate(6580%) hue-rotate(183deg) brightness(127%) contrast(101%);
+    cursor: pointer;
 }
 
 .bookInfo {
@@ -129,17 +147,4 @@ div.new-btn {
 
 .author {
     font-style: italic;
-}
-
-.remove-btn {
-    font-size: 2.4rem;
-    border: 0.2rem solid var(--text);
-    border-radius: 0.5rem;
-    color: var(--text);
-    background-color: var(--prime);
-    width: 2.9rem;
-    height: 2.9rem;
-    position: relative;
-    top: -0.6rem;
-    left: 22.5rem;
 }

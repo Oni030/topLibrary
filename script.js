@@ -126,10 +126,9 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 bookInfo.appendChild(newRead); 
             };
         };
-        const removeButton = document.createElement("button");
+        const removeButton = document.createElement("img");
         removeButton.classList.add("remove-btn");
-        removeButton.setAttribute("type", "button");
-        removeButton.textContent = "×";
+        removeButton.setAttribute("src", "icons/x-square.svg");
         newCard.insertBefore(removeButton, bookInfo);
     };
 };
