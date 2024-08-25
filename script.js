@@ -97,9 +97,6 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
         const bookInfo = document.createElement("div");
         bookInfo.classList.add("bookInfo");
         newCard.appendChild(bookInfo);
-        const cardFunctions = document.createElement("div");
-        cardFunctions.classList.add("cardFunctions");
-        newCard.appendChild(cardFunctions);
         libraryDisplay.insertBefore(newCard, newBtn);
         for (let key in libraryArray[i]) {
             if (key === "title") {
@@ -126,14 +123,14 @@ function displayLibrary(libraryArray, libraryDisplay, newBtn) {
                 newCheck.setAttribute("type", "checkbox");
                 newCheck.checked = libraryArray[i][key];
                 newRead.appendChild(newCheck);
-                cardFunctions.appendChild(newRead); 
+                bookInfo.appendChild(newRead); 
             };
         };
         const removeButton = document.createElement("button");
         removeButton.classList.add("remove-btn");
         removeButton.setAttribute("type", "button");
-        removeButton.textContent = "Remove"
-        cardFunctions.appendChild(removeButton);
+        removeButton.textContent = "×";
+        newCard.insertBefore(removeButton, bookInfo);
     };
 };
 
