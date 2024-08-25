@@ -7,9 +7,9 @@ const myLibrary = [
         read: false
     },
     {
-        title: "Brave New World",
-        author: "Aldous Huxley",
-        pages: "325",
+        title: "The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared",
+        author: "Jonas Jonasson",
+        pages: "396",
         read: true
     }
 ];
